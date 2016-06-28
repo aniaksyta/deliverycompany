@@ -1,0 +1,26 @@
+extends layout
+block content
+ .row(style='margin: 0px')
+  .col-lg-8.col-lg-offset-2.text-center
+    table.table.table-striped.center-table(style='margin-top: 150px;')
+      thead
+        tr
+          th 
+            form(action='', method='post')  
+                button.btn.btn-block(type='submit' value='1' name='sort') Address
+          th
+            form(action='', method='post')
+                button.btn.btn-block(type='submit' value='2' name='sort') City
+          th
+            form(action='', method='post')
+                button.btn.btn-block(type='submit' value='3' name='sort') Country
+          th
+            form(action='', method='post')
+                button.btn.btn-block(type='submit' value='4' name='sort') Postcode
+      tbody
+        each item in servicepoints
+          tr
+            th #{item.address}
+            th #{item.city}
+            th #{item.country}
+            th #{item.postcode}

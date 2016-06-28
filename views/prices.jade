@@ -1,0 +1,21 @@
+extends layout
+block content
+ .row(style='margin: 0px')
+  .col-lg-4.col-lg-offset-4
+    table.table.table-striped.center-table(style='margin-top: 150px;')
+            tbody
+              tr(data-index='0')
+                td(colspan='4')
+                  .card-view
+                    span.title(style='') Letter
+                    span.value #{value[0].min}-#{value[0].max}
+              tr(data-index='1')
+                td(colspan='4')
+                  .card-view
+                    span.title(style='') Pack
+                    span.value #{value[1].min}-#{value[1].max}
+              tr(data-index='2')
+                td(colspan='4')
+                  .card-view
+                    span.title(style='') Palette
+                    span.value #{value[2].min+0.01}-#{value[2].max}

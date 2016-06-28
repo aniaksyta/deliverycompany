@@ -1,0 +1,64 @@
+extends layout
+block content
+    .row.vertical-center-row
+      .row(style='margin-top: 150px; margin-bottom: 40px; margin-left: 0; margin-right:0;')
+        .col-lg-6.col-lg-offset-3.text-center
+           form(action='', method='post')
+            .input-group
+              input.form-control(type='text', placeholder='Enter id...', name='wprowadzId', value='#{id}')
+              span.input-group-btn
+                button.btn.btn-default(type='submit') Szukaj!
+          // /input-group
+        // /.col-lg-6
+      // /.row
+    if title==1
+     if shipping.length!=0
+      .row(style='margin: 0px;')
+        .col-lg-6.col-lg-offset-3
+          table.table.table-hover(data-height='299', data-card-view='true', data-response-handler='responseHandler')
+            tbody
+              tr(data-index='0')
+                td(colspan='4')
+                  .card-view
+                    span.title(style='') Status
+                    span.value #{shipping[0].status}
+                  .card-view
+                    span.title(style='') Current date
+                    span.value #{shipping[0].currentdate.toDateString()}
+                  .card-view
+                    span.title(style='') Whereabouts
+                    span.value #{shipping[0].spAddress}, #{shipping[0].spCity}, #{shipping[0].spCountry}
+                  .card-view
+                    span.title(style='') Payment
+                    span.value #{shipping[0].payPrice}
+                  .card-view
+                    span.title(style='') Courier phone number
+                    span.value #{shipping[0].couNum}
+              tr(data-index='1')
+                td(colspan='4')
+                  .card-view
+                    span.title(style='') Sender
+                  .card-view
+                    span.title(style='') Name
+                    span.value #{shipping[0].senFirstName} #{shipping[0].senLastName}
+                  .card-view
+                    span.title(style='') Address
+                    span.value #{shipping[0].senAddress}, #{shipping[0].senCity}, #{shipping[0].senCountry}, #{shipping[0].senPostCode}
+                  .card-view
+                    span.title(style='') Phone
+                    span.value #{shipping[0].senNum}
+              tr(data-index='2')
+                td(colspan='4')
+                  .card-view
+                    span.title(style='') Receiver
+                  .card-view
+                    span.title(style='') Name
+                    span.value #{shipping[0].recFirstName} #{shipping[0].recLastName}
+                  .card-view
+                    span.title(style='') Address
+                    span.value #{shipping[0].recAddress}, #{shipping[0].recCity}, #{shipping[0].recCountry}, #{shipping[0].recPostCode}
+                  .card-view
+                    span.title(style='') Phone
+                    span.value #{shipping[0].recNum}
+     else
+         h2 ID doesn't exist on database!
